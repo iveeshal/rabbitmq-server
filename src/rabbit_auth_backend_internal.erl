@@ -347,7 +347,6 @@ list_permissions(Keys, QueryThunk, Ref, Pid) ->
                                          configure = ConfigurePerm,
                                          write     = WritePerm,
                                          read      = ReadPerm}} <-
-            %% TODO: use dirty ops instead
             rabbit_misc:execute_mnesia_transaction(QueryThunk)],
     Pid ! {Ref, finished},
     ok.
